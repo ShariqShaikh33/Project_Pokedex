@@ -12,7 +12,6 @@ function App() {
     <div>
       <div id="PokedexTitle"><Hero/></div>
       <div id="search"><Search/></div>
-      <div id="display"></div>
     </div>
   )
 }
