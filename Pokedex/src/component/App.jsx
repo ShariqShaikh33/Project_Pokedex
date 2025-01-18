@@ -10,7 +10,6 @@ function App() {
   
   return (
     <div>
-      <div id="PokedexTitle"><Hero/></div>
       <div id="search"><Search/></div>
     </div>
   )
