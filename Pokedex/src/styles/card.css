@@ -1,3 +1,7 @@
+*{
+    font-size: 14px;
+}
+
 
 .pokemonMainDiv{
     display: flex;
@@ -28,7 +32,7 @@
 .pokemonDiv{
     outline: 15px solid maroon;
     outline-offset: -15px;
-    width: 26rem;
+    width: 25rem;
     height: 36rem; 
     display: flex;
     flex-direction: column;
