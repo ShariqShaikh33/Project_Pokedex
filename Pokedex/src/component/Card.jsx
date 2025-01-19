@@ -157,7 +157,7 @@ const Card=(pokemon)=>{
                 
                 <div className="imagediv">
                     <div className="buttonDiv">
-                        <div className="shinyBtn" onClick={()=>{cry("audio")}}>Cry</div>
+                        <div className="shinyBtn cryBtn" onClick={()=>{cry("audio")}}>Cry</div>
                         <audio id="audio" type="audio/ogg" src={pokemon.cries}></audio>
                     </div>
 

@@ -88,7 +88,7 @@
 .imagediv{
     border-radius: 5px;
     width: 20rem;
-    height: 21rem;
+    height: 22rem;
     background: white;
     display: flex;
     flex-direction: column;
@@ -135,6 +135,10 @@
     width: 20rem;
     margin: 1rem;
     gap: 1rem;
+}
+
+.cryBtn{
+    margin-top: 15px;
 }
 
 .shinyBtn{
