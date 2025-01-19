@@ -16,7 +16,6 @@ const Search=()=>{
 
   const randomnumber=(num)=>{
     let RandomNum = ((Math.random() * (num-1))+1).toFixed(0);
-    console.log(RandomNum);
     return RandomNum;
   }
 
@@ -55,7 +54,7 @@ const Search=()=>{
 
         <div id="displayDiv">
             
-        {pokemonData && <Card key={pokemonData.id} img={pokemonData.sprites?.front_default} img_behind={pokemonData.sprites?.back_default} shiny={pokemonData.sprites?.front_shiny} shiny_behind={pokemonData.sprites?.back_shiny} name={pokemonData.name} type1={pokemonData.types?.[0].type.name} type2={pokemonData.types?.[1]?.type.name}  number={pokemonData.id}/>}            
+        {pokemonData && <Card key={pokemonData.id} img={pokemonData.sprites?.front_default} img_behind={pokemonData.sprites?.back_default} shiny={pokemonData.sprites?.front_shiny} shiny_behind={pokemonData.sprites?.back_shiny} name={pokemonData.name} type1={pokemonData.types?.[0].type.name} type2={pokemonData.types?.[1]?.type.name}  number={pokemonData.id} cries={pokemonData.cries?.latest}/>}            
         </div>
     </div>
   )

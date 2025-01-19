@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../styles/card.css";
 
 const Card=(pokemon)=>{
@@ -52,17 +52,96 @@ const Card=(pokemon)=>{
         }
     }
 
-    // const typeColor=(id)=>{
-    //     let typeEle = document.getElementById(id);
-    //     console.log(typeEle);
-    //     console.log(id);
-    //     if(typeEle?.innerHTML=="poison"){
-    //         typeEle.style.background="purple";
-    //     }
-    // }
-    // window.onload = typeColor(`${pokemon.number}`+"type1");
-    // window.onload = typeColor(`${pokemon.number}`+"type2");
-    
+    const returnColor=(color)=>{
+        switch(color){
+            default:
+                return "noType";
+            
+            case "normal":
+                return "#bbbcaa";
+
+            case "fighting":
+                return "#a75545";
+            
+            case "flying":
+                return "#79a4ff";
+            
+            case "poison":
+                return "#a85da0";
+            
+            case "ground":
+                return "#e9ce59";
+            
+            case "rock":
+                return "#cfbd74";
+
+            case "bug":
+                return "#c2d120";
+            
+            case "ghost":
+                return "#7a76d7";
+            
+            case "steel":
+                return "#c4c2da";
+
+            case "fire":
+                return "#f05242";
+
+            case "water":
+                return "#55aefe";
+
+            case "grass":
+                return "#8cd852";
+
+            case "electric":
+                return "#fde53d";
+
+            case "psychic":
+                return "#fa66b5";
+
+            case "ice":
+                return "#96f2ff";
+        
+            case "dragon":
+                return "#8978fa";
+
+            case "dark":
+                return "#8d6955";
+
+            case "fairy":
+                return "#fbaeff";
+
+            case "stellar":
+                return "#40b5a5";
+        }
+    }
+
+    const typeColor=(id,type)=>{
+        let typeEle = document.getElementById(id);
+        let color = returnColor(type);
+        if(color==="noType"){
+            typeEle.style.background = "white";
+            typeEle.style.outline = "3px solid gray";
+        }
+        else{
+            typeEle.style.background = color;
+        }
+        
+    }
+
+    const cry=(id)=>{
+        let ele = document.getElementById(id);
+        ele.play();
+    }
+
+    useEffect(()=>{
+        if(pokemon){
+            typeColor(`${pokemon.number}`+"type1",pokemon.type1);
+            typeColor(`${pokemon.number}`+"type2",pokemon.type2);
+        }
+
+    },[pokemon]);
+
     return (
         <div className="pokemonMainDiv">
         <div className="pokemonDiv" id={pokemon.number}>
@@ -77,9 +156,9 @@ const Card=(pokemon)=>{
                 </div>
                 
                 <div className="imagediv">
-                    <div className="circleDiv">
-                        <div className="circle"></div>
-                        <div className="circle"></div>
+                    <div className="buttonDiv">
+                        <div className="shinyBtn" onClick={()=>{cry("audio")}}>Cry</div>
+                        <audio id="audio" type="audio/ogg" src={pokemon.cries}></audio>
                     </div>
 
                     <div className="imageInnerDiv">
@@ -93,10 +172,11 @@ const Card=(pokemon)=>{
                 </div>
                 
                 <div className="pokemonType" >
-                    <p className="pokemonType1" id={pokemon.number+"type1"} onLoad={()=>{typeColor(`${pokemon.number}`+"type1")}}>{(pokemon.type1)?.toUpperCase()}</p>
-                    <p className="pokemonType2" id={pokemon.number+"type2"} onLoad={()=>{typeColor(`${pokemon.number}`+"type2")}}>{(pokemon.type2)?.toUpperCase()}</p>
+                    <p className="pokemonType1" id={pokemon.number+"type1"} >{(pokemon.type1)?.toUpperCase()}</p>
+                    
+                    <p className="pokemonType2" id={pokemon.number+"type2"} >{(pokemon.type2)?.toUpperCase()}</p>
+                    
                 </div>
-
             </div>
             
         </div>
