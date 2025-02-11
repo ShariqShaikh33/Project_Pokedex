@@ -21,7 +21,7 @@ const Search=()=>{
   }
 
   useEffect(()=>{
-      let num = randomnumber(1032);
+      let num = randomnumber(1025);
       fetchrequest('https://pokeapi.co/api/v2/pokemon/'+num).then((res)=>{
         setPokemonData(res);
       });
@@ -29,14 +29,18 @@ const Search=()=>{
 
   const getPokemon=()=>{
     let searchValue = document.getElementById("searchbar").value;
-    fetchrequest("https://pokeapi.co/api/v2/pokemon/"+searchValue.toLowerCase()).then((res)=>{
-      if(searchValue==""){
-        setPokemonData(res.results);
-      }
-      else{
+    if(searchValue!=""){
+      fetchrequest("https://pokeapi.co/api/v2/pokemon/"+searchValue.toLowerCase()).then((res)=>{  
         setPokemonData(res);
-      }
-    })
+      })
+    }
+    else{
+      let num = randomnumber(1025);
+      fetchrequest('https://pokeapi.co/api/v2/pokemon/'+num).then((res)=>{
+        setPokemonData(res);
+      });
+    }
+    
     
   }
   //console.log(prevPokemon);

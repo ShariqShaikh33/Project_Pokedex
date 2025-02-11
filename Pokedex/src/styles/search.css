@@ -60,3 +60,10 @@ background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,6,0,1) 50%,
     align-items: center;
     margin-top: 1rem;
 }
+
+#Searchbtn:active{
+    outline: 2px solid black;
+    background:  maroon;
+    color:  white;
+}
+
