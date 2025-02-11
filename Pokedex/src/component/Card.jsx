@@ -30,6 +30,7 @@ const Card=(pokemon)=>{
 
     
     const turnAround=(id)=>{
+        
         if(!backside && !shinyOn){
             let imageEle = document.getElementById(id);
             imageEle.src = `${pokemon.img_behind}`;
@@ -138,6 +139,9 @@ const Card=(pokemon)=>{
         if(pokemon){
             typeColor(`${pokemon.number}`+"type1",pokemon.type1);
             typeColor(`${pokemon.number}`+"type2",pokemon.type2);
+            if(pokemon.img_behind==null){
+                document.getElementById("turnBtn").disabled=true;
+            }
         }
 
     },[pokemon]);
@@ -166,8 +170,8 @@ const Card=(pokemon)=>{
                     </div>
 
                     <div className="buttonDiv">
-                        <button className="shinyBtn" onClick={()=>changeShiny(`${pokemon.number}`+"img")}>Shiny</button>
-                        <button className="shinyBtn" onClick={()=>turnAround(`${pokemon.number}`+"img")} >Turn</button>
+                        <button className="shinyBtn" id="shinyBtn" onClick={()=>changeShiny(`${pokemon.number}`+"img")}>Shiny</button>
+                        <button className="shinyBtn" id="turnBtn" onClick={()=>turnAround(`${pokemon.number}`+"img")} >Turn</button>
                     </div>
                 </div>
                 
